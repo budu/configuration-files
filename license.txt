@@ -2,6 +2,8 @@ Modified MIT License
 
 All contents Copyright (c) 2009 Nicolas Buduroi except noted otherwise.
 
+The site-lisp.7z contains files under various kind of open source licenses.
+
 The "Software" in the following license represent all configuration files
 contained in this repository.
 
