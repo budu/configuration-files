@@ -286,6 +286,8 @@
 
 (require 'magit)
 
+(global-set-key "\C-xg" 'magit-status)
+
 ;;;; language-specific configuration ===================================
 
 (setq c-basic-offset 4)
@@ -353,6 +355,16 @@
 (eval-after-load "slime"
   '(progn (slime-setup '(slime-repl))))
 (slime-setup)
+
+(global-set-key [f7]
+  '(lambda ()
+     (interactive)
+     (split-window-vertically)
+     (enlarge-window 16)
+     (other-window 1)
+     (slime)))
+
+(global-set-key [f8] 'slime-restart-inferior-lisp)
 
 ;;; scheme
 (defun scheme ()
