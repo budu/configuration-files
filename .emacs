@@ -288,6 +288,14 @@
 
 (global-set-key "\C-xg" 'magit-status)
 
+;;; cygwin-mount
+
+(when *cygwin-bin*
+  (setenv "PATH" (concat *cygwin-bin* ";" (getenv "PATH")))
+  (setq exec-path (cons *cygwin-bin* exec-path))
+  (require 'cygwin-mount)
+  (cygwin-mount-activate))
+
 ;;;; language-specific configuration ===================================
 
 (setq c-basic-offset 4)
