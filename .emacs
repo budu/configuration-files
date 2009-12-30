@@ -71,7 +71,7 @@
 (setq even-window-heights nil)
 
 (setq-default indent-tabs-mode nil)
-(setq-default show-trailing-whitespace t)
+(setq-default show-trailing-whitespace nil)
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -101,11 +101,11 @@
   (interactive)
   (if window-system
     (progn
-      ;; use 120 char wide window for largeish displays
+      ;; use 140 char wide window for largeish displays
       ;; and smaller 80 column windows for smaller displays
       ;; pick whatever numbers make sense for you
       (if (> (x-display-pixel-width) 1280)
-        (add-to-list 'default-frame-alist (cons 'width 120))
+        (add-to-list 'default-frame-alist (cons 'width 140))
         (add-to-list 'default-frame-alist (cons 'width 80)))
       ;; for the height, subtract a couple hundred pixels
       ;; from the screen height (for panels, menubars and
@@ -281,6 +281,10 @@
 
 ;;; set default working directory
 (cd *default-directory*)
+
+;;; it's magit
+
+(require 'magit)
 
 ;;;; language-specific configuration ===================================
 
