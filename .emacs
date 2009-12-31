@@ -364,15 +364,31 @@
   '(progn (slime-setup '(slime-repl))))
 (slime-setup)
 
-(global-set-key [f7]
-  '(lambda ()
-     (interactive)
-     (split-window-vertically)
-     (enlarge-window 16)
-     (other-window 1)
-     (slime)))
+(defvar *default-window-configuration* nil)
+(defvar *inferior-list-window-configuration* nil)
 
-(global-set-key [f8] 'slime-restart-inferior-lisp)
+(global-set-key [f7]
+  '(lambda () (interactive)
+     (if *default-window-configuration*
+       (set-window-configuration *default-window-configuration*)
+       (progn
+         (interactive)
+         (split-window-vertically)
+         (enlarge-window 16)
+         (other-window 1)
+         (slime)
+         (setq *inferior-list-window-configuration*
+           (current-window-configuration))
+         (sit-for 7)
+         (setq *default-window-configuration*
+           (current-window-configuration))))))
+
+(global-set-key [f8]
+  '(lambda () (interactive)
+     (when *inferior-list-window-configuration*
+       (set-window-configuration *inferior-list-window-configuration*))))
+
+(global-set-key [f9] 'slime-restart-inferior-lisp)
 
 ;;; scheme
 (defun scheme ()
