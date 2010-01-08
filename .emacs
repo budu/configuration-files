@@ -138,6 +138,7 @@
 (global-set-key "\C-w"     'backward-kill-word)
 (global-set-key "\C-x\C-c" 'kill-region)
 (global-set-key "\C-x\M-q" 'save-buffers-kill-emacs)
+(global-set-key [f4]       'browse-url)
 (global-set-key [f5]       'start-kbd-macro)
 (global-set-key [f6]       'end-kbd-macro)
 (global-set-key [(control shift ?h)] 'help-command)
@@ -367,12 +368,16 @@
 (defvar *default-window-configuration* nil)
 (defvar *inferior-list-window-configuration* nil)
 
+(global-set-key "\C-cb" 'slime-eval-buffer)
+  
 (global-set-key [f7]
   '(lambda () (interactive)
      (if *default-window-configuration*
-       (set-window-configuration *default-window-configuration*)
        (progn
-         (interactive)
+         (set-window-configuration *default-window-configuration*)
+         (slime-repl)
+         (slime-repl-clear-buffer))
+       (progn
          (split-window-vertically)
          (enlarge-window 16)
          (other-window 1)
@@ -388,7 +393,11 @@
      (when *inferior-list-window-configuration*
        (set-window-configuration *inferior-list-window-configuration*))))
 
-(global-set-key [f9] 'slime-restart-inferior-lisp)
+(global-set-key [f9]
+  '(lambda () (interactive)
+     (slime-repl)
+     (slime-repl-clear-buffer)
+     (slime-restart-inferior-lisp)))
 
 ;;; scheme
 (defun scheme ()
