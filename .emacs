@@ -147,9 +147,11 @@
 (global-unset-key "\C-x\C-b")
 
 ;;; macros
-(global-set-key "\C-z"    (fset 'parens   "()\C-b"))
-(global-set-key "\M-z"    (fset 'brackets "[]\C-b"))
-(global-set-key "\C-\M-z" (fset 'braces   "{}\C-b"))
+(global-set-key "\C-x\C-b"    (fset 'parens   "\C-xb"))
+(global-set-key "\C-x\C-n"    (fset 'parens   "\C-x\C-b\C-xo\C-x\C-b\C-xo\C-x\C-b"))
+(global-set-key "\C-z"        (fset 'parens   "()\C-b"))
+(global-set-key "\M-z"        (fset 'brackets "[]\C-b"))
+(global-set-key "\C-\M-z"     (fset 'braces   "{}\C-b"))
 
 ;;;; default color theme ===============================================
 
