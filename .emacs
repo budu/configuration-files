@@ -107,6 +107,10 @@
 (when (fboundp 'winner-mode)
   (winner-mode 1))
 
+;;; Cygwin Shell
+
+(setq w32shell-cygwin-bin *cygwin-bin*)
+
 ;;; set default working directory
 (cd *default-directory*)
 
@@ -134,3 +138,17 @@
 
 (global-set-key [f9] 'slime-eval-buffer)
 (global-set-key [f10] 'swank-clojure-project)
+
+(setq swank-clojure-classpath
+      (jars-in-below-directory "~/.emacs.d/jars"))
+
+(setq swank-clojure-extra-vm-args
+      (list "-Dcom.sun.management.jmxremote=true"))
+
+(setq swank-clojure-init-files
+      (list *clojure-init-file*))
+
+;;;; Others
+
+(require 'chuck-mode)
+(setq chuck-exec *chuck-exec*)
