@@ -1,13 +1,16 @@
 
 (load "~/.local.el")
 
+(setenv "PATH" (concat "~/bin:" (getenv "PATH")))
+
 ;;; add user site-lisp directory and sub-directories to load-path
 (add-to-list 'load-path *main-site-lisp*)
 (cd *main-site-lisp*)
 (normal-top-level-add-subdirs-to-load-path)
 
 ;;; ELPA
-(setq package-archives '(("ELPA" . "http://tromey.com/elpa/") 
+(setq package-archives '(("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("ELPA" . "http://tromey.com/elpa/") 
                          ("gnu" . "http://elpa.gnu.org/packages/")))
 
 (when
@@ -41,6 +44,7 @@
 (setq even-window-heights nil)
 (setq default-tab-width 2)
 (setq initial-scratch-message nil)
+(setq default-buffer-file-coding-system 'unix)
 
 (setq-default indent-tabs-mode nil)
 (setq-default show-trailing-whitespace nil)
@@ -66,6 +70,12 @@
 ;;; set fill column mode (disabled by default)
 (setq auto-fill-mode 0)
 (setq-default fill-column 72)
+
+;; save history between sessions
+(setq savehist-additional-variables
+  '(search-ring regexp-search-ring compile-history)
+  savehist-file "~/.emacs.d/savehist")
+(savehist-mode t)
 
 ;;;; key bindings ======================================================
 
@@ -100,6 +110,9 @@
     (enlarge-window 16)))
 
 ;;;; miscellaneous =====================================================
+
+;;; bash color support
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 ;;; clean emacs
 (defvar *backup-dir* (concat *emacs-d* "emacs-backups/"
@@ -159,23 +172,34 @@
 (when (locate-library "erc")
   (autoload 'erc-select "erc" nil t)
 
-  (setq erc-server             "irc.freenode.net"
-        erc-port               6667
-        erc-user-full-name     "Nicolas Buduroi"
-        erc-email-userid       "budu"
-        erc-nick               '("budu")
-        erc-nickserv-passwords '((freenode ((*erc-freenode-nick* . *erc-freenode-password*))))))
+  (erc-services-mode 1)
+
+  (setq erc-prompt-for-nickserv-password nil)
+  (setq erc-prompt-for-password nil)
+  (setq erc-server "irc.freenode.net")
+  (setq erc-port 6667)
+  (setq erc-user-full-name "Nicolas Buduroi")
+  (setq erc-email-userid "budu")
+  (setq erc-nick '("budu"))
+  (setq erc-nickserv-passwords
+        `((freenode ((,*erc-freenode-nick* . ,*erc-freenode-password*)))))
+  (setq erc-autojoin-channels-alist '(("freenode.net" "#emacs" "#clojure")))
+
+  (custom-set-variables
+   ;; custom-set-variables was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   '(erc-modules
+     (quote
+      (autojoin button completion fill irccontrols list match
+       menu move-to-prompt netsplit networks noncommands readonly
+       ring services stamp track)))))
 
 ;;; slime
 
-(global-set-key [f8]
-  '(lambda () (interactive)
-     (slime-repl)
-     (slime-repl-clear-buffer)
-     (slime-restart-inferior-lisp)))
-
 (global-set-key [f9] 'slime-eval-buffer)
-(global-set-key [f10] 'slime-connect)
+(global-set-key [f10] 'clojure-jack-in)
 
 (setq swank-clojure-extra-vm-args
       (list "-Dcom.sun.management.jmxremote=true"))
@@ -200,6 +224,10 @@
 (setq org-log-done t)
 
 (custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
  '(org-level-4 ((t (:inherit outline-4 :foreground "green")))))
 
 ;;; yaml
@@ -229,3 +257,6 @@
 (autoload 'scss-mode "scss-mode")
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
 (setq scss-compile-at-save nil)
+
+;;; end
+

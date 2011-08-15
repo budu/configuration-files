@@ -28,7 +28,7 @@ alias skype='xhost +local: && sudo -u skype /usr/bin/skype'
 
 # Path
 
-PATH=$PATH:~/bin
+PATH=$PATH:~/bin:~/.lein/bin
 
 # PS1
 
