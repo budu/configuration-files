@@ -1,6 +1,8 @@
 
 (load "~/.local.el")
 
+(setenv "PATH" (concat "~/bin:" (getenv "PATH")))
+
 ;;; add user site-lisp directory and sub-directories to load-path
 (add-to-list 'load-path *main-site-lisp*)
 (cd *main-site-lisp*)
@@ -195,8 +197,6 @@
        ring services stamp track)))))
 
 ;;; slime
-
-(setenv "PATH" (concat "~/bin:" (getenv "PATH")))
 
 (global-set-key [f9] 'slime-eval-buffer)
 (global-set-key [f10] 'clojure-jack-in)
