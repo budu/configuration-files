@@ -16,10 +16,13 @@
      (expand-file-name "~/.emacs.d/elpa/package.el"))
   (package-initialize))
 
+(require 'ruby-mode)
 (require 'magit)
 (require 'auto-dictionary)
+(require 'rinari)
 (require 'slime)
 (require 'yaml-mode)
+(require 'tidy)
 
 ;;; Custom
 (load "budu-help")
@@ -114,6 +117,10 @@
                        (user-login-name)))
 (setq backup-directory-alist (list (cons "." *backup-dir*)))
 
+;;; dired
+
+(put 'dired-find-alternate-file 'disabled nil)
+
 ;;; add flyspell-mode to text-mode
 (dolist (hook '(text-mode-hook))
   (add-hook hook (lambda () (flyspell-mode 1))))
@@ -186,9 +193,6 @@
 
 ;;; ruby
 
-(add-to-list 'load-path "~/.emacs.d/site-lisp/ruby")
-(require 'ruby-mode)
-
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
@@ -218,9 +222,8 @@
 
 (setq auto-mode-alist
    (cons '("\\.md" . markdown-mode) auto-mode-alist))
-(put 'dired-find-alternate-file 'disabled nil)
 
-;;; coffeescript
+;;; coffee-mode
 
 (add-to-list 'load-path "~/.emacs.d/site-lisp/coffee-mode")
 (require 'coffee-mode)
@@ -228,7 +231,7 @@
 (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
 (add-to-list 'auto-mode-alist '("Cakefile" . coffee-mode))
 
-;;; scss
+;;; scss-mode
 
 (autoload 'scss-mode "scss-mode")
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))

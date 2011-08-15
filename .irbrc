@@ -1,7 +1,12 @@
-if Dir.pwd != File.expand_path('~')
-  local_irbrc = File.expand_path '.irbrc'
-  if File.exist? local_irbrc
-    puts "Loading #{local_irbrc}"
-    load local_irbrc
-  end
+require 'irb/completion'
+require 'pp'
+IRB.conf[:AUTO_INDENT]=true
+
+def load_irbrc(path)
+  return if (path == ENV["HOME"]) || (path == '/')
+  load_irbrc(File.dirname path)
+  irbrc = File.join(path, ".irbrc")
+  load irbrc if File.exists?(irbrc)
 end
+
+load_irbrc Dir.pwd

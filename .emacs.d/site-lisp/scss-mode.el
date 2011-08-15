@@ -83,7 +83,8 @@ HYPERLINK HIGHLIGHT)"
 Special commands:
 \\{scss-mode-map}"
   (font-lock-add-keywords nil scss-font-lock-keywords)
-  (add-to-list 'compilation-error-regexp-alist scss-compile-error-regex))
+  (add-to-list 'compilation-error-regexp-alist scss-compile-error-regex)
+  (add-hook 'after-save-hook 'scss-compile-maybe nil t))
 
 (define-key scss-mode-map "\C-c\C-c" 'scss-compile)
 

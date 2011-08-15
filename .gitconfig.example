@@ -1,0 +1,10 @@
+[user]
+	name = Nicolas Buduroi
+	email = nbuduroi@gmail.com
+[core]
+	excludesfile = /home/budu/.gitignore
+	autocrlf = input
+	filemode = false
+[github]
+	user = budu
+	token = ???

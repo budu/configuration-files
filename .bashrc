@@ -24,8 +24,16 @@ alias du='du -h'
 alias ls='ls --color=auto'
 alias l='ls -l'
 
+alias skype='xhost +local: && sudo -u skype /usr/bin/skype'
+
+# Path
+
 PATH=$PATH:~/bin:~/.lein/bin
 
+# PS1
+
 PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\[\e[1;35m\]$(__git_ps1 "(%s)")\[\e[m\]\n\$ '
+
+# RVM
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

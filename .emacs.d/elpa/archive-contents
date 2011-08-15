@@ -160,6 +160,9 @@
 		      (clojure-mode
 		       (1 7)))
 		     "Minor mode for Clojure tests" single])
+ (clojure-mode .
+	       [(1 7 1)
+		nil "Major mode for Clojure code" single])
  (magit .
 	[(0 8 1)
 	 nil "control Git from Emacs." single])

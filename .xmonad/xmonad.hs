@@ -27,5 +27,5 @@ inskeys conf@(XConfig {modMask = modm}) =
     [ ((mod4Mask, xK_F1), spawn "setxkbmap us")
     , ((mod4Mask, xK_F2), spawn "setxkbmap 'ca(fr)'")
     , ((mod4Mask, xK_p), spawn "gmrun")
-    , ((mod4Mask .|. shiftMask, xK_q), spawn "gnome-session-quit --lo gout")
+    , ((mod4Mask .|. shiftMask, xK_q), spawn "gnome-session-quit --logout")
     ]
