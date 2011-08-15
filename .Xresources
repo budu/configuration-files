@@ -1,0 +1,8 @@
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+
+URxvt.font: xft:Bitstream Vera Sans Mono:pixelsize=18
+URxvt.foreground: #dddee0
+URxvt.background: #000000
+URxvt.iso14755: False
