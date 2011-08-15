@@ -2,6 +2,6 @@
 # -*- mode: ruby -*-
 
 sub = ARGV.shift
-fargs = ARGV.empty? ? ". -type f" : ARGV.join(' ')
+fargs = ARGV.join(' ') + ' -type f'
 
 `find #{fargs} | xargs sed -i -e "#{sub}"`
