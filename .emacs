@@ -183,7 +183,10 @@
   (setq erc-nick '("budu"))
   (setq erc-nickserv-passwords
         `((freenode ((,*erc-freenode-nick* . ,*erc-freenode-password*)))))
-  (setq erc-autojoin-channels-alist '(("freenode.net" "#emacs" "#clojure")))
+  (setq erc-autojoin-channels-alist '(("freenode.net"
+                                       "#emacs"
+                                       "#clojure"
+                                       "#ruby")))
 
   (custom-set-variables
    ;; custom-set-variables was added by Custom.
