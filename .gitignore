@@ -21,6 +21,7 @@
 !.gitconfig.example
 !.gitignore
 !.gmrunrc
+!.inputrc
 !.irbrc
 !.xmobarrc
 !.xmonad

@@ -1,0 +1,23 @@
+$include /etc/inputrc
+
+# Custom settings
+
+set convert-meta on
+
+set completion-ignore-case on
+
+set mark-directories on
+set mark-symlinked-directories on
+
+# Custom bindings
+
+"\M-p": history-search-backward
+"\M-n": history-search-forward
+
+# Macros
+
+"\C-z": "()\C-b"
+"\M-z": "[]\C-b"
+"\C-\M-z": "{}\C-b"
+"\C-x\"": "\"\"\C-b"
+"\C-x'": "''\C-b"

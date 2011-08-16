@@ -30,6 +30,11 @@ alias skype='xhost +local: && sudo -u skype /usr/bin/skype'
 
 PATH=$PATH:~/bin:~/.lein/bin
 
+# Custom terminal line settings
+
+stty stop ^_
+stty susp ^]
+
 # PS1
 
 PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\[\e[1;35m\]$(__git_ps1 "(%s)")\[\e[m\]\n\$ '

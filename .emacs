@@ -99,6 +99,8 @@
 (global-set-key "\C-z"        (fset 'parens   "()\C-b"))
 (global-set-key "\M-z"        (fset 'brackets "[]\C-b"))
 (global-set-key "\C-\M-z"     (fset 'braces   "{}\C-b"))
+(global-set-key "\C-x\""      (fset 'braces   "\"\"\C-b"))
+(global-set-key "\C-x'"       (fset 'braces   "''\C-b"))
 (global-set-key "\C-c\C-z"    (fset 'braces   "<%  %>\C-b\C-b\C-b"))
 (global-set-key "\C-c\M-z"    (fset 'braces   "<%  %>\n<% end %>\C-p\C-b\C-b\C-b"))
 (global-set-key "\C-cz"       (fset 'braces   "<%=  %>\C-b\C-b\C-b"))
