@@ -32,7 +32,7 @@ PATH=$PATH:~/bin:~/.lein/bin
 
 # Custom terminal line settings
 
-stty stop ^_
+stty stop undef
 stty susp ^]
 
 # PS1
