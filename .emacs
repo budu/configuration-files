@@ -25,6 +25,7 @@
 (require 'slime)
 (require 'yaml-mode)
 (require 'tidy)
+(require 'ido)
 
 ;;; Custom
 (load "budu-help")
@@ -114,6 +115,11 @@
     (enlarge-window 16)))
 
 ;;;; miscellaneous =====================================================
+
+;;; ido mode
+
+(ido-mode t)
+(setq ido-enable-flex-matching t)
 
 ;;; bash color support
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
@@ -216,6 +222,8 @@
         (list *clojure-init-file*)))
 
 ;;; ruby
+
+(setq rinari-tags-file-name "TAGS")
 
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
