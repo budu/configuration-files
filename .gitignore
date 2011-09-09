@@ -6,6 +6,7 @@
 !bin
 !bin/alt
 !bin/pmemgrep
+!bin/rails-ctags
 !bin/search
 !bin/search-and-replace
 !bin/xmobar

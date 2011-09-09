@@ -1,0 +1,3 @@
+#!/bin/sh
+
+ctags -a -e -f TAGS --tag-relative -R app lib vendor
