@@ -207,15 +207,25 @@
 
 ;;; slime
 
+(global-set-key
+ [f8]
+ '(lambda () (interactive)
+    (start-process "swank-clojure"
+                   "*swank-clojure*"
+                   "~/.lein/bin/swank-clojure")
+    (set-process-filter (get-buffer-process "*swank-clojure*")
+                        (lambda (process output)
+                          (when (string-match "Connection opened on" output)
+                            (slime-connect "localhost" "4005")
+                            (with-current-buffer (slime-output-buffer t)
+                              (setq default-directory root))
+                            (set-process-filter process nil))))))
+
 (global-set-key [f9] 'slime-eval-buffer)
 (global-set-key [f10] 'clojure-jack-in)
 
 (setq swank-clojure-extra-vm-args
       (list "-Dcom.sun.management.jmxremote=true"))
-
-(when *clojure-init-file*
-  (setq swank-clojure-init-files
-        (list *clojure-init-file*)))
 
 ;;; ruby
 
