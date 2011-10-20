@@ -208,17 +208,6 @@
   (setq erc-nickserv-passwords
         `((freenode ((,*erc-freenode-nick* . ,*erc-freenode-password*)))))
 
-  (custom-set-variables
-   ;; custom-set-variables was added by Custom.
-   ;; If you edit it by hand, you could mess it up, so be careful.
-   ;; Your init file should contain only one such instance.
-   ;; If there is more than one, they won't work right.
-   '(erc-modules
-     (quote
-      (autojoin button completion fill irccontrols list match
-       menu move-to-prompt netsplit networks noncommands readonly
-       ring services stamp track)))))
-
 ;;; slime
 
 (global-set-key
@@ -295,3 +284,16 @@
 
 ;;; end
 
+(custom-set-variables
+
+ '(erc-modules '(autojoin button completion fill irccontrols list
+                 match menu move-to-prompt netsplit networks
+                 noncommands readonly ring services stamp track))
+ 
+ '(safe-local-variable-values
+   '((encoding . utf-8)
+     (ruby-compilation-executable . "ruby")
+     (ruby-compilation-executable . "ruby1.8")
+     (ruby-compilation-executable . "ruby1.9")
+     (ruby-compilation-executable . "rbx")
+     (ruby-compilation-executable . "jruby")))))
