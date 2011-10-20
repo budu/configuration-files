@@ -26,13 +26,13 @@
                 site
                 inurl)))
 
-(defun java-help ()
-  (interactive)
-  (web-help "download.oracle.com" "/docs/cd/E17409_01/javase/6/docs/api/"))
-
 (defun ruby-help ()
   (interactive)
   (web-help "www.ruby-doc.org" "/core/"))
+
+(defun java-help ()
+  (interactive)
+  (web-help "download.oracle.com" "/javase/6/docs/api/"))
 
 (defun browse-current-buffer ()
   (interactive)
@@ -40,6 +40,6 @@
     (buffer-file-name (current-buffer))))
 
 (global-set-key [(f1)] 'google)
-(global-set-key [(f2)] 'java-help)
-(global-set-key [(f3)] 'ruby-help)
+(global-set-key [(f2)] 'ruby-help)
+(global-set-key [(f3)] 'java-help)
 (global-set-key [(f4)] 'browse-current-buffer)
