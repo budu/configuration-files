@@ -96,6 +96,13 @@
 (global-set-key (kbd "S-C-k") 'shrink-window)
 (global-set-key (kbd "S-C-j") 'enlarge-window)
 
+(global-set-key [f12]
+  (lambda ()
+    (interactive)
+    (mapc 'kill-buffer 
+          (delq (current-buffer) 
+                (remove-if-not 'buffer-file-name (buffer-list))))))
+
 ;;; remove unused key bindings
 (global-unset-key "\C-x\C-b")
 
