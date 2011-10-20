@@ -89,7 +89,12 @@
 (global-set-key "\C-x\M-q" 'save-buffers-kill-emacs)
 (global-set-key [f5]       'start-kbd-macro)
 (global-set-key [f6]       'end-kbd-macro)
+(global-set-key [f7]       'shell)
+
 (global-set-key [(control shift ?h)] 'help-command)
+
+(global-set-key (kbd "S-C-k") 'shrink-window)
+(global-set-key (kbd "S-C-j") 'enlarge-window)
 
 ;;; remove unused key bindings
 (global-unset-key "\C-x\C-b")
@@ -107,12 +112,6 @@
 (global-set-key "\C-c\C-z"    (fset 'braces   "<%  %>\C-b\C-b\C-b"))
 (global-set-key "\C-c\M-z"    (fset 'braces   "<%  %>\n<% end %>\C-p\C-b\C-b\C-b"))
 (global-set-key "\C-cz"       (fset 'braces   "<%=  %>\C-b\C-b\C-b"))
-(global-set-key
- [f7]
- '(lambda () (interactive)
-    (if (< (count-windows) 2)
-        (split-window-vertically))
-    (enlarge-window 16)))
 
 ;;;; miscellaneous =====================================================
 
