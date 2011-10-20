@@ -164,6 +164,14 @@
 
 (add-hook 'flyspell-mode-hook (lambda () (auto-dictionary-mode 1)))
 
+;;; kill completion buffers after 3 seconds
+
+(add-hook 'completion-setup-hook
+  (lambda () (run-at-time 3 nil
+    (lambda ()
+      (delete-windows-on "*Completions*")
+      (kill-buffer "*Completions*")))))
+
 ;;; magit
 
 (setq magit-revert-item-confirm t)
