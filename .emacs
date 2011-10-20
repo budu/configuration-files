@@ -96,7 +96,7 @@
 (global-set-key (kbd "S-C-k") 'shrink-window)
 (global-set-key (kbd "S-C-j") 'enlarge-window)
 
-(global-set-key [f12]
+(global-set-key [f11]
   (lambda ()
     (interactive)
     (mapc 'kill-buffer 
