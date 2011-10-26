@@ -30,6 +30,10 @@
   (interactive)
   (web-help "www.ruby-doc.org" "/core/"))
 
+(defun rails-help ()
+  (interactive)
+  (web-help "apidock.com" "/rails/"))
+
 (defun java-help ()
   (interactive)
   (web-help "download.oracle.com" "/javase/6/docs/api/"))
@@ -41,5 +45,5 @@
 
 (global-set-key [(f1)] 'google)
 (global-set-key [(f2)] 'ruby-help)
-(global-set-key [(f3)] 'java-help)
-(global-set-key [(f4)] 'browse-current-buffer)
+(global-set-key [(f3)] 'rails-help)
+(global-set-key [(f4)] 'java-help)
