@@ -24,6 +24,8 @@
 !.gmrunrc
 !.inputrc
 !.irbrc
+!.lein
+!.lein/*
 !.xmobarrc
 !.xmonad
 !.xmonad/xmonad.hs
