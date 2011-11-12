@@ -230,6 +230,14 @@
 (setq swank-clojure-extra-vm-args
       (list "-Dcom.sun.management.jmxremote=true"))
 
+(define-clojure-indent
+  ;; Examples:
+  ;;  (def 'defun)
+  ;;  (try 0)
+  ;;  (ns 1)
+  ;;  (condp 2)
+  (facts 'defun))
+
 ;;; ruby
 
 (setq rinari-tags-file-name "TAGS")
