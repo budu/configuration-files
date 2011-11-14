@@ -26,6 +26,7 @@
 (require 'yaml-mode)
 (require 'tidy)
 (require 'ido)
+(require 'clojure-mode)
 
 ;;; Custom
 (load "budu-help")
