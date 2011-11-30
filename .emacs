@@ -237,7 +237,10 @@
   ;;  (try 0)
   ;;  (ns 1)
   ;;  (condp 2)
-  (facts 'defun))
+  (facts 'defun)
+  (fresh 'defun)
+  (run* 'defun)
+  (run 'defun))
 
 ;;; ruby
 
