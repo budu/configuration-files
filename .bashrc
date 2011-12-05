@@ -48,3 +48,7 @@ PS1='\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\[\e[1;35m\]$(__git_ps1 "(%s)")\[\e[
 # Editor
 
 export EDITOR=emacs
+
+# ClojureScript
+
+export CLOJURESCRIPT_HOME=$HOME/source/clojurescript
