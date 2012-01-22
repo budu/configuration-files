@@ -5,6 +5,7 @@
 !.bashrc
 !bin
 !bin/alt
+!bin/git-weight
 !bin/pmemgrep
 !bin/rails-ctags
 !bin/search
