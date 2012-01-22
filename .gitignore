@@ -3,6 +3,7 @@
 !.bash_completion
 !.bash_completion/*
 !.bashrc
+!.profile
 !bin
 !bin/alt
 !bin/git-weight

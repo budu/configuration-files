@@ -4,7 +4,6 @@
 
 # Custom variables
 
-export DEV_EMAIL="nbuduroi@gmail.com"
 
 [[ $- != *i* ]] && return # if not running interactively, don't do anything
 
@@ -26,12 +25,6 @@ alias l='ls -l'
 
 alias skype='xhost +local: && sudo -u skype /usr/bin/skype'
 
-# Path
-
-export M2_HOME=/opt/maven/
-export M2=$M2_HOME/bin
-export PATH=$PATH:~/bin:~/.lein/bin:$M2:/usr/bin/vendor_perl
-
 # Custom terminal line settings
 
 stty stop undef
@@ -48,7 +41,3 @@ PS1='\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\[\e[1;35m\]$(__git_ps1 "(%s)")\[\e[
 # Editor
 
 export EDITOR=emacs
-
-# ClojureScript
-
-export CLOJURESCRIPT_HOME=$HOME/source/clojurescript

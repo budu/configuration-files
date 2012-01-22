@@ -1,8 +1,6 @@
 
 (load "~/.local.el")
 
-(setenv "PATH" (concat "~/bin:" (getenv "PATH")))
-
 ;;; add user site-lisp directory and sub-directories to load-path
 (add-to-list 'load-path *main-site-lisp*)
 (cd *main-site-lisp*)
@@ -244,17 +242,6 @@
   (fresh 'defun)
   (run* 'defun)
   (run 'defun))
-
-(setenv "CLOJURESCRIPT_HOME"
-        (shell-command-to-string
-         "echo -n $HOME/source/clojurescript"))
-
-(setenv "CLASSPATH"
-        (shell-command-to-string
-         (concat "echo -n "
-                 "$CLOJURESCRIPT_HOME/lib/*:"
-                 "$CLOJURESCRIPT_HOME/src/clj:"
-                 "$CLOJURESCRIPT_HOME/src/cljs")))
 
 ;;; ruby
 
