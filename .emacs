@@ -237,10 +237,24 @@
   ;;  (try 0)
   ;;  (ns 1)
   ;;  (condp 2)
+  (validates 'defun)
+  (associates 'defun)
+  (form-to 'defun)
   (facts 'defun)
   (fresh 'defun)
   (run* 'defun)
   (run 'defun))
+
+(setenv "CLOJURESCRIPT_HOME"
+        (shell-command-to-string
+         "echo -n $HOME/source/clojurescript"))
+
+(setenv "CLASSPATH"
+        (shell-command-to-string
+         (concat "echo -n "
+                 "$CLOJURESCRIPT_HOME/lib/*:"
+                 "$CLOJURESCRIPT_HOME/src/clj:"
+                 "$CLOJURESCRIPT_HOME/src/cljs")))
 
 ;;; ruby
 
@@ -251,6 +265,7 @@
 (add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Guardfile" . ruby-mode))
 
 ;;; org mode
 
