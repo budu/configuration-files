@@ -30,7 +30,7 @@ alias skype='xhost +local: && sudo -u skype /usr/bin/skype'
 
 export M2_HOME=/opt/maven/
 export M2=$M2_HOME/bin
-export PATH=$PATH:~/bin:~/.lein/bin:$M2
+export PATH=$PATH:~/bin:~/.lein/bin:$M2:/usr/bin/vendor_perl
 
 # Custom terminal line settings
 
