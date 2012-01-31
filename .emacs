@@ -8,7 +8,7 @@
 
 ;;; ELPA
 (setq package-archives '(("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("ELPA" . "http://tromey.com/elpa/") 
+                         ("ELPA" . "http://tromey.com/elpa/")
                          ("gnu" . "http://elpa.gnu.org/packages/")))
 
 (when
@@ -98,8 +98,8 @@
 (global-set-key [f11]
   (lambda ()
     (interactive)
-    (mapc 'kill-buffer 
-          (delq (current-buffer) 
+    (mapc 'kill-buffer
+          (delq (current-buffer)
                 (remove-if-not 'buffer-file-name (buffer-list))))))
 
 ;;; remove unused key bindings
@@ -120,6 +120,10 @@
 (global-set-key "\C-cz"       (fset 'braces   "<%=  %>\C-b\C-b\C-b"))
 
 ;;;; miscellaneous =====================================================
+
+;;; trailing whitespace
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;;; ido mode
 
@@ -254,6 +258,15 @@
 (add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Guardfile" . ruby-mode))
 
+(add-hook
+ 'ruby-mode-hook
+ (lambda ()
+   (add-hook 'local-write-file-hooks
+             '(lambda ()
+                (save-excursion
+                  (untabify (point-min) (point-max))
+                  (delete-trailing-whitespace))))))
+
 ;;; org mode
 
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
@@ -303,7 +316,7 @@
  '(erc-modules '(autojoin button completion fill irccontrols list
                  match menu move-to-prompt netsplit networks
                  noncommands readonly ring services stamp track))
- 
+
  '(safe-local-variable-values
    '((encoding . utf-8)
      (ruby-compilation-executable . "ruby")
