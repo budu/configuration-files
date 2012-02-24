@@ -1,0 +1,2 @@
+#!/bin/sh
+dmenu_run -b -fn 'xft:Bitstream Vera Sans Mono:pixelsize=18' -nb '#808080' -nf '#FFFFFF' -sb '#FFFFFF' -sf '#000000'

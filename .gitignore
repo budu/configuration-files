@@ -6,6 +6,7 @@
 !.profile
 !bin
 !bin/alt
+!bin/dmrun
 !bin/git-weight
 !bin/pmemgrep
 !bin/rails-ctags
