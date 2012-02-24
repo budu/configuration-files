@@ -239,6 +239,7 @@
   ;;  (try 0)
   ;;  (ns 1)
   ;;  (condp 2)
+  (do-template 'defun)
   (validates 'defun)
   (associates 'defun)
   (form-to 'defun)
