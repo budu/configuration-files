@@ -24,6 +24,7 @@ alias ls='ls --color=auto'
 alias l='ls -l'
 
 alias skype='xhost +local: && sudo -u skype /usr/bin/skype'
+alias open='xdg-open'
 
 # Custom terminal line settings
 
