@@ -90,10 +90,10 @@
 (global-set-key [f6]       'end-kbd-macro)
 (global-set-key [f7]       'shell)
 
-(global-set-key [(control shift ?h)] 'help-command)
-
 (global-set-key (kbd "S-C-k") 'shrink-window)
 (global-set-key (kbd "S-C-j") 'enlarge-window)
+(global-set-key (kbd "S-C-h") 'shrink-window-horizontally)
+(global-set-key (kbd "S-C-l") 'enlarge-window-horizontally)
 
 (global-set-key [f11]
   (lambda ()
@@ -216,6 +216,8 @@
 (global-set-key
  [f8]
  '(lambda () (interactive)
+    (let ((p (get-process "*swank-clojure*")))
+      (if p (process-kill-without-query p)))
     (start-process "swank-clojure"
                    "*swank-clojure*"
                    "~/.lein/bin/swank-clojure")
@@ -239,6 +241,14 @@
   ;;  (try 0)
   ;;  (ns 1)
   ;;  (condp 2)
+  (enqueue 'defun)
+  (run-pipeline 'defun)
+  (! 'defun)
+  (!! 'defun)
+  (when! 'defun)
+  (doseq! 'defun)
+  (when-> 'defun)
+  (when-supported 'defun)
   (do-template 'defun)
   (validates 'defun)
   (associates 'defun)
@@ -325,3 +335,5 @@
      (ruby-compilation-executable . "ruby1.9")
      (ruby-compilation-executable . "rbx")
      (ruby-compilation-executable . "jruby")))))
+
+(put 'erase-buffer 'disabled nil)
