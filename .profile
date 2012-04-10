@@ -13,6 +13,12 @@ export CLOJURESCRIPT_HOME=$HOME/source/clojurescript
 
 export CLASSPATH=$CLOJURESCRIPT_HOME/lib/*:$CLOJURESCRIPT_HOME/src/clj:$CLOJURESCRIPT_HOME/src/cljs
 
+# Default Browser
+
+if [ -n "$DISPLAY" ]; then
+    export BROWSER=chromium
+fi
+
 # Private Stuff
 
 PRIVATE=~/.profile.local
