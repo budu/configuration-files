@@ -2,6 +2,6 @@
 # -*- mode: ruby -*-
 
 re = ARGV.shift
-fargs = ARGV.empty? ? ". -type f" : ARGV.join(' ')
+fargs = ARGV.empty? ? ". -type f" : (ARGV.join(' ') + ' -type f')
 
 puts `find #{fargs} | xargs egrep #{re} | egrep -v "Binary file|.git/" | alt`
