@@ -320,6 +320,10 @@
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
 (setq scss-compile-at-save nil)
 
+;; js2-mode
+
+(setq js2-basic-offset 2)
+
 ;;; end
 
 (custom-set-variables
