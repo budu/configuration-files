@@ -6,25 +6,11 @@
 (cd *main-site-lisp*)
 (normal-top-level-add-subdirs-to-load-path)
 
-;;; ELPA
-(setq package-archives '(("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("ELPA" . "http://tromey.com/elpa/")
-                         ("gnu" . "http://elpa.gnu.org/packages/")))
-
-(when
-    (load
-     (expand-file-name "~/.emacs.d/elpa/package.el"))
-  (package-initialize))
-
-(require 'ruby-mode)
-(require 'magit)
-(require 'auto-dictionary)
-(require 'rinari)
-(require 'slime)
-(require 'yaml-mode)
-(require 'tidy)
-(require 'ido)
-(require 'clojure-mode)
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (package-initialize)
+  (setq package-archives '(("marmalade" . "http://marmalade-repo.org/packages/")
+                           ("gnu" . "http://elpa.gnu.org/packages/"))))
 
 ;;; Custom
 (load "budu-help")
@@ -161,17 +147,10 @@
 ;;; set default working directory
 (cd *default-directory*)
 
-;;; htmlize
-(load "htmlize")
-
 ;;; mode-compile
 
 (autoload 'mode-compile "mode-compile"
   "Command to compile current buffer file based on the major mode" t)
-
-;;; auto-dictionary
-
-(add-hook 'flyspell-mode-hook (lambda () (auto-dictionary-mode 1)))
 
 ;;; kill completion buffers after 3 seconds
 
@@ -234,29 +213,6 @@
 
 (setq swank-clojure-extra-vm-args
       (list "-Dcom.sun.management.jmxremote=true"))
-
-(define-clojure-indent
-  ;; Examples:
-  ;;  (def 'defun)
-  ;;  (try 0)
-  ;;  (ns 1)
-  ;;  (condp 2)
-  (enqueue 'defun)
-  (run-pipeline 'defun)
-  (! 'defun)
-  (!! 'defun)
-  (when! 'defun)
-  (doseq! 'defun)
-  (when-> 'defun)
-  (when-supported 'defun)
-  (do-template 'defun)
-  (validates 'defun)
-  (associates 'defun)
-  (form-to 'defun)
-  (facts 'defun)
-  (fresh 'defun)
-  (run* 'defun)
-  (run 'defun))
 
 ;;; ruby
 
