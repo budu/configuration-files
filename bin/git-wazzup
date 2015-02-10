@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+branches = `git branch -a`.split("\n")
+current  = branches.grep(/^\*/).first[/[^ *]+/]
+branches = branches.map { |b| b[/[^ *]+/] }
+branches = branches.select { |b| b =~ eval(ARGV.first) } if ARGV.first
+
+(branches - [current]).each do |branch|
+  unless (cherries = `git cherry -v #{current} #{branch}`).empty?
+    puts "#{branch}\n#{cherries}\n"
+  end
+end
