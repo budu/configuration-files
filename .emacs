@@ -66,15 +66,18 @@
 ;;;; key bindings ======================================================
 
 ;;; custom key bindings
-(global-set-key "\C-xc"    'comment-region)
-(global-set-key "\C-xu"    'uncomment-region)
-(global-set-key "\C-h"     'delete-backward-char)
-(global-set-key "\C-w"     'backward-kill-word)
-(global-set-key "\C-x\C-c" 'kill-region)
-(global-set-key "\C-x\M-q" 'save-buffers-kill-emacs)
-(global-set-key [f5]       'start-kbd-macro)
-(global-set-key [f6]       'end-kbd-macro)
-(global-set-key [f7]       'shell)
+(global-set-key (kbd "RET") 'electric-newline-and-maybe-indent)
+(global-set-key "\C-j"      'newline-and-indent)
+(global-set-key "\C-xc"     'comment-region)
+(global-set-key "\C-xu"     'uncomment-region)
+(global-set-key "\C-h"      'delete-backward-char)
+(global-set-key "\C-w"      'backward-kill-word)
+(global-set-key "\C-x\C-h"  'mark-whole-buffer)
+(global-set-key "\C-x\C-c"  'kill-region)
+(global-set-key "\C-x\M-q"  'save-buffers-kill-emacs)
+(global-set-key [f5]        'start-kbd-macro)
+(global-set-key [f6]        'end-kbd-macro)
+(global-set-key [f7]        'shell)
 
 (global-set-key (kbd "S-C-k") 'shrink-window)
 (global-set-key (kbd "S-C-j") 'enlarge-window)
@@ -95,15 +98,20 @@
 (global-set-key "\M-j"        (fset 'parens   "\C-u-\C-xo"))
 (global-set-key "\M-k"        (fset 'parens   "\C-xo"))
 (global-set-key "\C-x\C-b"    (fset 'parens   "\C-xb"))
-(global-set-key "\C-x\C-n"    (fset 'parens   "\C-x\C-b\C-xo\C-x\C-b\C-xo\C-x\C-b"))
 (global-set-key "\C-z"        (fset 'parens   "()\C-b"))
 (global-set-key "\M-z"        (fset 'brackets "[]\C-b"))
 (global-set-key "\C-\M-z"     (fset 'braces   "{}\C-b"))
 (global-set-key "\C-x\""      (fset 'braces   "\"\"\C-b"))
 (global-set-key "\C-x'"       (fset 'braces   "''\C-b"))
+
 (global-set-key "\C-c\C-z"    (fset 'braces   "<%  %>\C-b\C-b\C-b"))
 (global-set-key "\C-c\M-z"    (fset 'braces   "<%  %>\n<% end %>\C-p\C-b\C-b\C-b"))
 (global-set-key "\C-cz"       (fset 'braces   "<%=  %>\C-b\C-b\C-b"))
+(global-set-key "\C-ct"       (fset 'braces   "<%= t('.') %>\C-b\C-b\C-b\C-b\C-b"))
+
+;;; mouse stuff
+
+(global-set-key [mouse-3] 'mouse-yank-primary)
 
 ;;;; miscellaneous =====================================================
 
