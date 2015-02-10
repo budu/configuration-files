@@ -1,5 +1,6 @@
-require 'irb/completion'
 require 'pp'
+require 'ap'
+
 IRB.conf[:AUTO_INDENT]=true
 
 def load_irbrc(path)
@@ -10,3 +11,11 @@ def load_irbrc(path)
 end
 
 load_irbrc Dir.pwd
+
+module IRB
+  class Irb
+    def output_value
+      ap @context.last_value
+    end
+  end
+end
