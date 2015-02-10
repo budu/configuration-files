@@ -42,3 +42,10 @@ PS1='\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\[\e[1;35m\]$(__git_ps1 "(%s)")\[\e[
 # Editor
 
 export EDITOR=emacs
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:/opt/gradle/bin # Add RVM to PATH for scripting
+
+# Set locale
+
+export LANG=en_US.UTF-8
