@@ -136,6 +136,16 @@
 
 (put 'dired-find-alternate-file 'disabled nil)
 
+;;; automatically create missing directories
+
+(add-hook
+ 'before-save-hook
+ (lambda ()
+   (when buffer-file-name
+     (let ((dir (file-name-directory buffer-file-name)))
+       (when (not (file-exists-p dir))
+         (make-directory dir t))))))
+
 ;;; add flyspell-mode to text-mode
 (dolist (hook '(text-mode-hook))
   (add-hook hook (lambda () (flyspell-mode 1))))
