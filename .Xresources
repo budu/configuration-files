@@ -3,6 +3,11 @@ Xft.antialias: true
 Xft.hinting: true
 
 URxvt.font: xft:Bitstream Vera Sans Mono:pixelsize=18
+URxvt.depth: 32
 URxvt.foreground: #dddee0
 URxvt.background: #000000
+URxvt*.transparent: true
+URxvt*.shading: 60
 URxvt.iso14755: False
+URxvt.imLocale: fr_CA.UTF-8
+URxvt.saveLines: 12000
