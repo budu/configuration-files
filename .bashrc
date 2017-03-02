@@ -55,3 +55,16 @@ export LANG=en_US.UTF-8
 export LC_CTYPE="en_US.UTF-8"
 
 printf '\33]701;%s\007' "$LC_CTYPE"
+
+# Go to last saved directory
+
+function c() {
+    cd "$@"
+    pwd > ~/.lastdir
+}
+
+function c..() {
+    c ..
+}
+
+[ -s ~/.lastdir ] && cd `cat ~/.lastdir`
