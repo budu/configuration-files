@@ -13,6 +13,8 @@ done
 
 # History options
 
+export HISTFILESIZE=
+export HISTSIZE=
 export HISTCONTROL="ignoredups"
 export HISTIGNORE="[   ]*:&:bg:fg:exit"
 
