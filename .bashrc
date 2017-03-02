@@ -47,6 +47,7 @@ export EDITOR=emacs
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:/opt/gradle/bin # Add RVM to PATH for scripting
+PATH=$HOME/bin:$PATH
 
 # Set locale
 
