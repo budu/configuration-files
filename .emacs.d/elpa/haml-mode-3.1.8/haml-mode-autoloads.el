@@ -1,10 +1,10 @@
 ;;; haml-mode-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads (haml-mode) "haml-mode" "haml-mode.el" (21397 57998
-;;;;;;  744012 99000))
+;;;### (autoloads nil "haml-mode" "haml-mode.el" (22712 40722 568678
+;;;;;;  466000))
 ;;; Generated autoloads from haml-mode.el
 
 (autoload 'haml-mode "haml-mode" "\
@@ -18,16 +18,9 @@ Major mode for editing Haml files.
 
 ;;;***
 
-;;;### (autoloads nil nil ("haml-mode-pkg.el") (21397 57998 750647
-;;;;;;  580000))
-
-;;;***
-
-(provide 'haml-mode-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; haml-mode-autoloads.el ends here

@@ -1,4 +1,3 @@
-
 ;;; haml-mode.el --- Major mode for editing Haml files
 
 ;; Copyright (c) 2007, 2008 Nathan Weizenbaum
@@ -6,7 +5,7 @@
 ;; Author: Nathan Weizenbaum
 ;; URL: http://github.com/nex3/haml/tree/master
 ;; Package-Requires: ((ruby-mode "1.0"))
-;; Version: 3.1.5
+;; Version: 3.1.8
 ;; Created: 2007-03-08
 ;; By: Nathan Weizenbaum
 ;; Keywords: markup, language, html
@@ -238,7 +237,7 @@ END.")
   "Regexp to match trailing ruby code which may continue onto subsequent lines.")
 
 (defconst haml-ruby-script-re
-  (concat "^[ \t]*\\(-\\|[&!]?[=~]\\) " haml-possibly-multiline-code-re)
+  (concat "^[ \t]*\\(-\\|[&!]?\\(?:=\\|~\\)\\)[^=]" haml-possibly-multiline-code-re)
   "Regexp to match -, = or ~ blocks and any continued code lines.")
 
 (defun haml-highlight-ruby-script (limit)

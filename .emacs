@@ -9,8 +9,8 @@
 (when (>= emacs-major-version 24)
   (require 'package)
   (package-initialize)
-  (setq package-archives '(("marmalade" . "http://marmalade-repo.org/packages/")
-                           ("gnu" . "http://elpa.gnu.org/packages/"))))
+  (setq package-archives '(("marmalade" . "https://marmalade-repo.org/packages/")
+                           ("gnu" . "https://elpa.gnu.org/packages/"))))
 
 ;;; Custom
 (load "budu-help")
@@ -47,6 +47,7 @@
 (put 'upcase-region   'disabled nil)
 (put 'downcase-region 'disabled nil)
 
+(prefer-coding-system 'utf-8)
 
 ;;; improve font lock mode
 (cond ((fboundp 'global-font-lock-mode)
@@ -256,6 +257,12 @@
 (add-to-list 'auto-mode-alist '("Capfile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Vagrantfile" . ruby-mode))
 
+(setq ruby-align-chained-calls nil
+      ruby-align-to-stmt-keywords nil
+      ruby-deep-indent-paren nil
+      ruby-deep-indent-paren-style nil
+      ruby-insert-encoding-magic-comment nil)
+
 ;;; org mode
 
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
@@ -372,5 +379,40 @@ list."
 
 (global-set-key (kbd "C--") 'hs-hide-all)
 (global-set-key (kbd "C-+") 'hs-show-all)
+(global-set-key (kbd "C-=") 'hs-show-all)
 
 (add-hook 'ruby-mode-hook 'hs-minor-mode)
+
+;;; ftf
+
+(require 'find-things-fast)
+
+(global-set-key (kbd "C-x n") 'ftf-find-file)
+(global-set-key (kbd "C-c f") 'ftf-find-file)
+(global-set-key (kbd "C-c C-f") 'ftf-find-file)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(dabbrev-abbrev-skip-leading-regexp ":")
+ '(erc-modules
+   (quote
+    (autojoin button completion fill irccontrols list match menu move-to-prompt netsplit networks noncommands readonly ring services stamp track)))
+ '(package-selected-packages
+   (quote
+    (scss-mode elixir-mix elixir-mode yaml-mode slim-mode simp rust-mode magit lua-mode haml-mode find-things-fast)))
+ '(safe-local-variable-values
+   (quote
+    ((encoding . utf-8)
+     (ruby-compilation-executable . "ruby")
+     (ruby-compilation-executable . "ruby1.8")
+     (ruby-compilation-executable . "ruby1.9")
+     (ruby-compilation-executable . "rbx")
+     (ruby-compilation-executable . "jruby")))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-level-4 ((t (:inherit outline-4 :foreground "green")))))
