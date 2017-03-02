@@ -52,3 +52,6 @@ PATH=$HOME/bin:$PATH
 # Set locale
 
 export LANG=en_US.UTF-8
+export LC_CTYPE="en_US.UTF-8"
+
+printf '\33]701;%s\007' "$LC_CTYPE"
