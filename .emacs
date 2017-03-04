@@ -392,6 +392,7 @@ list."
 (global-set-key (kbd "C-x n") 'ftf-find-file)
 (global-set-key (kbd "C-c f") 'ftf-find-file)
 (global-set-key (kbd "C-c C-f") 'ftf-find-file)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -403,7 +404,7 @@ list."
     (autojoin button completion fill irccontrols list match menu move-to-prompt netsplit networks noncommands readonly ring services stamp track)))
  '(package-selected-packages
    (quote
-    (scss-mode elixir-mix elixir-mode yaml-mode slim-mode simp rust-mode magit lua-mode haml-mode find-things-fast)))
+    (alchemist scss-mode elixir-mix yaml-mode slim-mode simp rust-mode magit lua-mode haml-mode find-things-fast)))
  '(safe-local-variable-values
    (quote
     ((encoding . utf-8)
@@ -412,6 +413,7 @@ list."
      (ruby-compilation-executable . "ruby1.9")
      (ruby-compilation-executable . "rbx")
      (ruby-compilation-executable . "jruby")))))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
