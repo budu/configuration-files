@@ -67,6 +67,28 @@
 
 ;;;; miscellaneous =====================================================
 
+(defun cslist-to-indented-lines-and-back (start end &optional arg)
+  (interactive "r\nP")
+  (if (string-match-p "\n" (buffer-substring start end))
+      (let ((insertion
+             (mapconcat
+              (lambda (x) (string-trim x))
+              (split-string (buffer-substring start end) "\n") " ")))
+        (delete-region start end)
+        (insert insertion)
+        (indent-region start end)
+        (when arg (forward-char (length insertion))))
+      (let ((insertion
+             (mapconcat
+              (lambda (x) (string-trim x))
+              (split-string (buffer-substring start end) ",") ",\C-j")))
+        (delete-region start end)
+        (insert insertion)
+        (indent-region start end)
+        (when arg (forward-char (length insertion))))))
+
+(global-set-key [C-tab] 'cslist-to-indented-lines-and-back)
+
 ;;; c indentation
 
 (setq-default c-basic-offset 4)
@@ -445,8 +467,6 @@ list."
 ;;; mouse stuff
 (global-set-key [mouse-3] 'mouse-yank-primary)
 
-;;; Auto
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -456,9 +476,6 @@ list."
  '(erc-modules
    (quote
     (autojoin button completion fill irccontrols list match menu move-to-prompt netsplit networks noncommands readonly ring services stamp track)))
- '(ftf-filetypes
-   (quote
-    ("*.rb" "*.yml" "*.md" "*.ru" "*.html" "*.slim" "*.haml" "*.js" "*.coffee" "*.elm" "*.css" "*.scss" "*.sass" "*.rake" "*.jbuilder")))
  '(package-selected-packages
    (quote
     (web-mode tide typescript-mode sass-mode helm-ag dumb-jump helm-ispell helm-ls-git helm helm-rails helm-rb zenburn-theme elm-mode js2-mode json-mode alchemist elixir-mix yaml-mode slim-mode simp rust-mode magit lua-mode haml-mode find-things-fast)))
