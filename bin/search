@@ -3,6 +3,6 @@
 
 re = ARGV.shift
 fargs = ARGV.empty? ? '. -type f ' : (ARGV.join(' ') + ' -type f ')
-fargs += '-not -path "./tmp/*" -not -path "./log/*" -not -path "./.git/*"'
+fargs += '-not -path "./tmp/*" -not -path "./log/*" -not -path "./.git/*" -not -path "./deps/*"'
 
 puts `find #{fargs} | xargs -d '\n' egrep #{re} | egrep -v "Binary file|.git/" | alt`
