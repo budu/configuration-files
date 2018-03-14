@@ -1,7 +1,8 @@
 require 'pp'
 require 'ap'
 
-IRB.conf[:AUTO_INDENT]=true
+IRB.conf[:AUTO_INDENT] = true
+IRB.conf[:SAVE_HISTORY] = 10_000
 
 def load_irbrc(path)
   return if (path == ENV["HOME"]) || (path == '/')
