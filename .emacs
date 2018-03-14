@@ -67,6 +67,10 @@
 
 ;;;; miscellaneous =====================================================
 
+;;; c indentation
+
+(setq-default c-basic-offset 4)
+
 ;;; browser
 
 (setq browse-url-browser-function 'browse-url-generic
