@@ -20,6 +20,7 @@ export HISTIGNORE="[   ]*:&:bg:fg:exit"
 
 # Aliases
 
+alias less='less -R'
 alias df='df -h'
 alias du='du -h'
 alias ls='ls --color=auto'
