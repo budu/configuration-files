@@ -67,6 +67,11 @@
 
 ;;;; miscellaneous =====================================================
 
+;;; browser
+
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "chromium")
+
 ;;; trailing whitespace
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
