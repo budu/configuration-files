@@ -9,8 +9,7 @@
 (when (>= emacs-major-version 24)
   (require 'package)
   (setq package-archives '(("melpa" . "http://melpa.org/packages/")
-                           ("gnu" . "https://elpa.gnu.org/packages/")
-                           ("marmalade" . "https://marmalade-repo.org/packages/")))
+                           ("gnu" . "https://elpa.gnu.org/packages/")))
   (package-initialize))
 
 
