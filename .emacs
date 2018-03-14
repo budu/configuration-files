@@ -216,12 +216,16 @@
 (add-to-list 'auto-mode-alist '("Guardfile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Capfile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Vagrantfile" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.axlsx$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.arb$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.scss$" . css-mode))
 
 (setq ruby-align-chained-calls nil
       ruby-align-to-stmt-keywords nil
       ruby-deep-indent-paren nil
       ruby-deep-indent-paren-style nil
-      ruby-insert-encoding-magic-comment nil)
+      ruby-insert-encoding-magic-comment nil
+      ruby-use-smie t)
 
 ;;; org mode
 
