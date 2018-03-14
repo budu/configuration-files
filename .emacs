@@ -384,13 +384,18 @@ list."
 
 (add-hook 'ruby-mode-hook 'hs-minor-mode)
 
-;;; ftf
+;;; Helm
 
-(require 'find-things-fast)
+(require 'helm-config)
+(global-set-key (kbd "S-C-M-f") 'helm-ag-project-root)
+(global-set-key (kbd "S-C-f") 'helm-browse-project)
+(global-set-key (kbd "C-x b") 'helm-buffers-list)
 
-(global-set-key (kbd "C-x n") 'ftf-find-file)
-(global-set-key (kbd "C-c f") 'ftf-find-file)
-(global-set-key (kbd "C-c C-f") 'ftf-find-file)
+;;; other
+
+(dumb-jump-mode)
+(setq tags-revert-without-query 1)
+
 ;;;; key bindings ======================================================
 
 ;;; custom key bindings
@@ -440,6 +445,8 @@ list."
 ;;; mouse stuff
 (global-set-key [mouse-3] 'mouse-yank-primary)
 
+;;; Auto
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -449,9 +456,12 @@ list."
  '(erc-modules
    (quote
     (autojoin button completion fill irccontrols list match menu move-to-prompt netsplit networks noncommands readonly ring services stamp track)))
+ '(ftf-filetypes
+   (quote
+    ("*.rb" "*.yml" "*.md" "*.ru" "*.html" "*.slim" "*.haml" "*.js" "*.coffee" "*.elm" "*.css" "*.scss" "*.sass" "*.rake" "*.jbuilder")))
  '(package-selected-packages
    (quote
-    (alchemist scss-mode elixir-mix yaml-mode slim-mode simp rust-mode magit lua-mode haml-mode find-things-fast)))
+    (web-mode tide typescript-mode sass-mode helm-ag dumb-jump helm-ispell helm-ls-git helm helm-rails helm-rb zenburn-theme elm-mode js2-mode json-mode alchemist elixir-mix yaml-mode slim-mode simp rust-mode magit lua-mode haml-mode find-things-fast)))
  '(safe-local-variable-values
    (quote
     ((encoding . utf-8)
