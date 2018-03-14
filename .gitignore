@@ -39,3 +39,4 @@
 !.xmonad
 !.xmonad/xmonad.hs
 !.Xresources
+!.config/awesome
