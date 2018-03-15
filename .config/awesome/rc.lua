@@ -282,7 +282,11 @@ globalkeys = awful.util.table.join(
     -- Other
     awful.key({ modkey }, "a", function() awful.util.spawn("sh /home/budu/bin/us") end),
     awful.key({ modkey }, "s", function() awful.util.spawn("sh /home/budu/bin/cf") end),
-    awful.key({ modkey }, "i", function() awful.util.spawn("chromium --disable-features=SendMouseLeaveEvents") end))
+    awful.key({ modkey }, "i", function() awful.util.spawn("chromium --disable-features=SendMouseLeaveEvents") end),
+    awful.key({ modkey, "Control" }, "i",
+       function()
+          awful.util.spawn("chromium --proxy-server=localhost:8888 --disable-features=SendMouseLeaveEvents")
+       end))
 
 
 clientkeys = awful.util.table.join(
